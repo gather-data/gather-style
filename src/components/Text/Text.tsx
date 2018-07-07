@@ -48,6 +48,11 @@ const TypeToTag = {
 
 type TypeToStyle = { [TKey in Types]: InterpolationValue[] };
 
+interface props {
+  heavy: boolean;
+}
+
+// @ts-ignore
 export const TypeToStyle: TypeToStyle = {
   [Types.BODY_TINY]: css`
     font-size: ${12 / 16}rem;
@@ -74,28 +79,28 @@ export const TypeToStyle: TypeToStyle = {
     font-size: ${48 / 16}rem;
     line-height: 1.05em;
     font-family: rubik, Helvetica, sans-serif;
-    font-weight: ${props =>
+    font-weight: ${(props: props) =>
       props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
   [Types.HEADING_2]: css`
     font-size: ${36 / 16}rem;
     line-height: 1.25em;
     font-family: rubik, Helvetica, sans-serif;
-    font-weight: ${props =>
+    font-weight: ${(props: props) =>
       props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
   [Types.HEADING_3]: css`
     font-size: ${28 / 16}rem;
     line-height: 1.25em;
     font-family: rubik, Helvetica, sans-serif;
-    font-weight: ${props =>
+    font-weight: ${(props: props) =>
       props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
   [Types.HEADING_4]: css`
     font-size: ${20 / 16}rem;
     line-height: 1.22222222em;
     font-family: rubik, Helvetica, sans-serif;
-    font-weight: ${props =>
+    font-weight: ${(props: props) =>
       props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
 };

@@ -3,7 +3,7 @@ import { Page, Row, Column } from 'hedron';
 
 import { pb } from '../styles';
 
-function unit(multiple) {
+function unit(multiple: number) {
   if (typeof multiple === 'string') {
     return multiple;
   }

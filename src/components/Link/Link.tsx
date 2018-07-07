@@ -41,6 +41,7 @@ interface LinkProps {
   textColor?: string;
   exact?: boolean;
   heavy?: boolean;
+  title?: string;
   icon?: React.ReactNode;
   iconEnd?: boolean;
   disabled?: boolean;
@@ -186,6 +187,7 @@ export const TypeToStyle = {
         ${boxShadow};
         background: ${color(props.color || colors.primary)
           .darken(0.05)
+          // @ts-ignore
           .hexString()};
       }
     `};
@@ -359,6 +361,8 @@ class StyledLink extends Component<LinkProps> {
       size,
       textColor,
       heavy,
+      isNavLink,
+      title,
     };
 
     let NavComponent = StyledRouterLink;

@@ -17,8 +17,8 @@ const Colors = {
   purple20: 'rgba(93, 117, 246, 0.2)',
   purple10: 'rgba(93, 117, 246, 0.1)',
   purple5: 'rgba(93, 117, 246, 0.05)',
-  white60: 'rgba(255, 255, 255, 0.6)';
-  white20: 'rgba(255, 255, 255, 0.2)';
+  white60: 'rgba(255, 255, 255, 0.6)',
+  white20: 'rgba(255, 255, 255, 0.2)',
 
   primary: '',
   border: '',

@@ -36,6 +36,8 @@
         "prettier": "1.13.7"
     },
     "dependencies": {
+        "@types/color": "3.0.0",
+        "@types/hedron": "0.7.2",
         "@types/react-router-dom": "4.2.7",
         "color": "3.0.0",
         "hedron": "0.7.1",
