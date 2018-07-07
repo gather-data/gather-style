@@ -2,10 +2,10 @@ import { injectGlobal } from 'styled-components';
 
 import Text, { Types, TypeToStyle } from './components/Text';
 
-import * as rubikRegular from './assets/fonts/rubikRegular.ttf';
-import rubikItalic from './assets/fonts/rubikItalic.ttf';
-import rubik500 from './assets/fonts/rubik500.ttf';
-import rubik500Italic from './assets/fonts/rubik500Italic.ttf';
+import * as rubikRegular from './assets/fonts/RubikRegular.ttf';
+import rubikItalic from './assets/fonts/RubikItalic.ttf';
+import rubik500 from './assets/fonts/Rubik500.ttf';
+import rubik500Italic from './assets/fonts/Rubik500Italic.ttf';
 import firaMonoRegular from './assets/fonts/firaMonoRegular.ttf';
 
 export default function registerGlobalCSS() {
