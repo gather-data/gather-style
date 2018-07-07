@@ -1,5 +1,3 @@
-import hexRgb from 'hex-rgb';
-
 const Colors = {
   navy: '#102C5C',
   purple: '#5D75F6',
@@ -32,9 +30,5 @@ Colors.border = Colors.purple20;
 Colors.text = Colors.navy80;
 Colors.textWhiteFaded = Colors.white60;
 Colors.shadow = Colors.purple20;
-
-export function withAlpha(color: string, alpha: number) {
-  return `rgba(${hexRgb(color).join(', ')}, ${alpha})`;
-}
 
 export default Colors;
