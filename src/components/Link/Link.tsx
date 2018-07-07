@@ -38,7 +38,9 @@ export enum Types {
 
 interface LinkProps {
   color?: string;
+  textColor?: string;
   exact?: boolean;
+  heavy?: boolean;
   icon?: React.ReactNode;
   iconEnd?: boolean;
   disabled?: boolean;
@@ -83,6 +85,7 @@ const baseStyle = css<LinkProps>`
   cursor: pointer;
   text-align: left;
   -webkit-appearance: none;
+  justify-content: center;
 
   &:hover {
     text-decoration: none;
@@ -116,9 +119,11 @@ const baseStyle = css<LinkProps>`
   }`};
 `;
 
-const LINK_TYPE_TO_STYLE = {
+export const TypeToStyle = {
   [Types.TEXT]: css<LinkProps>`
     color: ${props => props.color || colors.primary};
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
 
     &:hover,
     &.active {
@@ -141,9 +146,17 @@ const LINK_TYPE_TO_STYLE = {
     ${props =>
       props.isNavLink &&
       `
+      font-weight: bold;
       color: ${colors.purple60};
       border-bottom: 1px solid rgba(0, 0, 0, 0);
       transition: color 0.24s;
+      margin-top: 4px;
+    `};
+
+    ${props =>
+      props.heavy &&
+      `
+      font-weight: bold;
     `};
 
     ${props => {
@@ -160,7 +173,7 @@ const LINK_TYPE_TO_STYLE = {
   `,
 
   [Types.BUTTON_PRIMARY]: css<LinkProps>`
-    color: ${colors.white};
+    color: ${props => props.textColor || colors.white};
     border: 1px solid ${props => props.color || colors.primary};
     background: ${props => props.color || colors.primary};
     ${transition(['box-shadow', 'background'])};
@@ -187,7 +200,7 @@ const LINK_TYPE_TO_STYLE = {
       } else if (props.size === 'large') {
         return `
           ${ph(3)(props)};
-          ${pv(2)(props)};
+          ${pv(1.5)(props)};
           ${TextTypeToStyle[TextTypes.BODY_LARGE]};
         `;
       }
@@ -219,7 +232,7 @@ const LINK_TYPE_TO_STYLE = {
       } else if (props.size === 'large') {
         return `
           ${ph(3)(props)};
-          ${pv(2)(props)};
+          ${pv(1.5)(props)};
           ${TextTypeToStyle[TextTypes.BODY_LARGE]};
         `;
       }
@@ -229,27 +242,27 @@ const LINK_TYPE_TO_STYLE = {
 
 const StyledRouterLink = styled(Link)`
   ${baseStyle};
-  ${props => LINK_TYPE_TO_STYLE[props.type]};
+  ${props => TypeToStyle[props.type]};
 `;
 
 const StyledRouterNavLink = styled(NavLink)`
   ${baseStyle};
-  ${props => LINK_TYPE_TO_STYLE[props.type]};
+  ${props => TypeToStyle[props.type]};
 `;
 
 const StyledAnchor = styled.a`
   ${baseStyle};
-  ${props => LINK_TYPE_TO_STYLE[props.type]};
+  ${props => TypeToStyle[props.type]};
 `;
 
 const StyledButton = styled.button`
   ${baseStyle};
-  ${props => LINK_TYPE_TO_STYLE[props.type]};
+  ${props => TypeToStyle[props.type]};
 `;
 
 const StyledScrollchor = styled(Scrollchor)`
   ${baseStyle};
-  ${props => LINK_TYPE_TO_STYLE[props.type]};
+  ${props => TypeToStyle[props.type]};
 `;
 
 interface IconProps {
@@ -299,6 +312,8 @@ class StyledLink extends Component<LinkProps> {
       target,
       size,
       title,
+      heavy,
+      textColor,
       p: styledP,
       pv: styledPv,
       ph: styledPh,
@@ -342,7 +357,19 @@ class StyledLink extends Component<LinkProps> {
       mb: styledMb,
       exact,
       size,
+      textColor,
+      heavy,
     };
+
+    let NavComponent = StyledRouterLink;
+    if (isNavLink) {
+      // I don't know how to make this valid
+      // @ts-ignore
+      NavComponent = StyledRouterNavLink;
+      propsToPass.exact = exact;
+      propsToPass.isNavLink = isNavLink;
+      propsToPass.title = title;
+    }
 
     if (iconToUse) {
       if (iconEnd) {
@@ -384,16 +411,6 @@ class StyledLink extends Component<LinkProps> {
           {newChildren}
         </StyledButton>
       );
-    }
-
-    let NavComponent = StyledRouterLink;
-    if (isNavLink) {
-      // I don't know how to make this valid
-      // @ts-ignore
-      NavComponent = StyledRouterNavLink;
-      propsToPass.exact = exact;
-      propsToPass.isNavLink = isNavLink;
-      propsToPass.title = title;
     }
 
     if (!to) {

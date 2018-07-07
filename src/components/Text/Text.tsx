@@ -49,50 +49,54 @@ const TypeToTag = {
 type TypeToStyle = { [TKey in Types]: InterpolationValue[] };
 
 export const TypeToStyle: TypeToStyle = {
-  [Types.BODY_TINY]: `
+  [Types.BODY_TINY]: css`
     font-size: ${12 / 16}rem;
     line-height: 1.5em;
     font-family: rubik, Helvetica, sans-serif;
     line-height: 1.3;
   `,
-  [Types.BODY_SMALL]: `
+  [Types.BODY_SMALL]: css`
     font-size: ${14 / 16}rem;
     line-height: 1.3;
     font-family: rubik, Helvetica, sans-serif;
   `,
-  [Types.BODY]: `
+  [Types.BODY]: css`
     font-size: ${16 / 16}rem;
-    line-height: 1.5em;
+    line-height: ${28 / 16}rem;
     font-family: rubik, Helvetica, sans-serif;
   `,
-  [Types.BODY_LARGE]: `
+  [Types.BODY_LARGE]: css`
     font-size: ${20 / 16}rem;
     font-family: rubik, Helvetica, sans-serif;
     line-height: 1.3;
   `,
-  [Types.HEADING_1]: `
+  [Types.HEADING_1]: css`
     font-size: ${48 / 16}rem;
     line-height: 1.05em;
     font-family: rubik, Helvetica, sans-serif;
-    font-weight: bold;
+    font-weight: ${props =>
+      props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
-  [Types.HEADING_2]: `
+  [Types.HEADING_2]: css`
     font-size: ${36 / 16}rem;
     line-height: 1.25em;
     font-family: rubik, Helvetica, sans-serif;
-    font-weight: bold;
+    font-weight: ${props =>
+      props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
-  [Types.HEADING_3]: `
+  [Types.HEADING_3]: css`
     font-size: ${28 / 16}rem;
     line-height: 1.25em;
     font-family: rubik, Helvetica, sans-serif;
-    font-weight: bold;
+    font-weight: ${props =>
+      props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
-  [Types.HEADING_4]: `
+  [Types.HEADING_4]: css`
     font-size: ${20 / 16}rem;
     line-height: 1.22222222em;
     font-family: rubik, Helvetica, sans-serif;
-    font-weight: bold;
+    font-weight: ${props =>
+      props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
 };
 
@@ -129,6 +133,7 @@ const Text: React.SFC<TextProps> = ({
   children,
   className,
   tag,
+  heavy,
   type = Types.BODY,
 }) => {
   const tagToUse = tag || TypeToTag[type];

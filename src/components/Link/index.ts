@@ -1,4 +1,4 @@
-import Link, { Types } from './Link';
+import Link, { Types, TypeToStyle } from './Link';
 
-export { Types };
+export { Types, TypeToStyle };
 export default Link;

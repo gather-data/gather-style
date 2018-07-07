@@ -59,7 +59,7 @@ export default function registerGlobalCSS() {
       margin: 0;
       min-height: 100%;
       position: relative;
-      background: #FBFBFB;
+      background: #fff;
       // This is the height of the footer
       /* padding-bottom: 11rem; */
       ${TypeToStyle[Types.BODY]};
