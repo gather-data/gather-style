@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import styled, { css } from 'styled-components';
 import { HashLink as Link } from 'react-router-hash-link';
 import Scrollchor from 'react-scrollchor';
@@ -276,7 +276,7 @@ const StyledIcon = styled.span<IconProps>`
   ${props => (props.hasChildren && props.iconEnd ? ml(1) : mr(1.5))};
 `;
 
-class StyledLink extends Component<LinkProps> {
+class StyledLink extends React.Component<LinkProps> {
   static defaultProps = {
     type: Types.TEXT,
     size: 'default',
