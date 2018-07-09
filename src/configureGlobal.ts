@@ -13,28 +13,28 @@ export default function registerGlobalCSS() {
   // @ts-ignore
   injectGlobal`
     @font-face {
-      font-family: rubik;
+      font-family: Rubik;
       src: url('${rubikRegular}');
       font-weight: normal;
       font-style: normal;
     }
 
     @font-face {
-      font-family: rubik;
+      font-family: Rubik;
       src: url('${rubikItalic}');
       font-weight: normal;
       font-style: italic;
     }
 
     @font-face {
-      font-family: rubik;
+      font-family: Rubik;
       src: url('${rubik500}');
       font-weight: bold;
       font-style: normal;
     }
 
     @font-face {
-      font-family: rubik;
+      font-family: Rubik;
       src: url('${rubik500Italic}');
       font-weight: bold;
       font-style: italic;

@@ -57,49 +57,49 @@ export const TypeToStyle: TypeToStyle = {
   [Types.BODY_TINY]: css`
     font-size: ${12 / 16}rem;
     line-height: 1.5em;
-    font-family: rubik, Helvetica, sans-serif;
+    font-family: Rubik, Helvetica, sans-serif;
     line-height: 1.3;
   `,
   [Types.BODY_SMALL]: css`
     font-size: ${14 / 16}rem;
     line-height: 1.3;
-    font-family: rubik, Helvetica, sans-serif;
+    font-family: Rubik, Helvetica, sans-serif;
   `,
   [Types.BODY]: css`
     font-size: ${16 / 16}rem;
     line-height: ${28 / 16}rem;
-    font-family: rubik, Helvetica, sans-serif;
+    font-family: Rubik, Helvetica, sans-serif;
   `,
   [Types.BODY_LARGE]: css`
     font-size: ${20 / 16}rem;
-    font-family: rubik, Helvetica, sans-serif;
+    font-family: Rubik, Helvetica, sans-serif;
     line-height: 1.3;
   `,
   [Types.HEADING_1]: css`
     font-size: ${48 / 16}rem;
     line-height: 1.05em;
-    font-family: rubik, Helvetica, sans-serif;
+    font-family: Rubik, Helvetica, sans-serif;
     font-weight: ${(props: props) =>
       props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
   [Types.HEADING_2]: css`
     font-size: ${36 / 16}rem;
     line-height: 1.25em;
-    font-family: rubik, Helvetica, sans-serif;
+    font-family: Rubik, Helvetica, sans-serif;
     font-weight: ${(props: props) =>
       props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
   [Types.HEADING_3]: css`
     font-size: ${28 / 16}rem;
     line-height: 1.25em;
-    font-family: rubik, Helvetica, sans-serif;
+    font-family: Rubik, Helvetica, sans-serif;
     font-weight: ${(props: props) =>
       props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
   [Types.HEADING_4]: css`
     font-size: ${20 / 16}rem;
     line-height: 1.22222222em;
-    font-family: rubik, Helvetica, sans-serif;
+    font-family: Rubik, Helvetica, sans-serif;
     font-weight: ${(props: props) =>
       props.heavy !== undefined ? (props.heavy ? 'bold' : 'normal') : 'bold'};
   `,
