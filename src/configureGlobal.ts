@@ -2,6 +2,7 @@ import { injectGlobal } from 'styled-components';
 
 import Text, { Types, TypeToStyle } from './components/Text';
 
+import cornerstone from './assets/fonts/cornerstone.ttf';
 import rubikRegular from './assets/fonts/rubikRegular.ttf';
 import rubikItalic from './assets/fonts/rubikItalic.ttf';
 import rubik500 from './assets/fonts/rubik500.ttf';
@@ -12,6 +13,13 @@ export default function registerGlobalCSS() {
   /*eslint-disable */
   // @ts-ignore
   injectGlobal`
+    @font-face {
+      font-family: cornerstone;
+      src: url('${cornerstone}');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     @font-face {
       font-family: Rubik;
       src: url('${rubikRegular}');
