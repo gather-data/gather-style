@@ -10,6 +10,9 @@ const Colors = {
   navy80: 'rgba(36, 34, 50, 0.8)',
   navy60: 'rgba(36, 34, 50, 0.6)',
   navy40: 'rgba(36, 34, 50, 0.4)',
+  navy10: 'rgba(36, 34, 50, 0.1)',
+  navy5: 'rgba(36, 34, 50, 0.05)',
+  navy3: 'rgba(36, 34, 50, 0.03)',
   purple80: 'rgba(93, 117, 246, 0.8)',
   purple60: 'rgba(93, 117, 246, 0.6)',
   purple20: 'rgba(93, 117, 246, 0.2)',
@@ -27,8 +30,8 @@ const Colors = {
 
 Colors.primary = Colors.purple;
 Colors.border = Colors.purple20;
-Colors.text = Colors.navy80;
+Colors.text = Colors.navy;
 Colors.textWhiteFaded = Colors.white60;
-Colors.shadow = Colors.purple20;
+Colors.shadow = Colors.navy10;
 
 export default Colors;

@@ -133,6 +133,7 @@ export const TypeToStyle = {
           return '';
         } else if (props.isNavLink) {
           return `
+            opacity: 1;
             color: ${colors.primary};
             border-bottom: 1px solid ${colors.primary};
   purple20: '#DFE3FD',
@@ -148,10 +149,11 @@ export const TypeToStyle = {
       props.isNavLink &&
       `
       font-weight: bold;
-      color: ${colors.purple60};
+      color: ${props => props.color || colors.purple};
       border-bottom: 1px solid rgba(0, 0, 0, 0);
       transition: color 0.24s;
       margin-top: 4px;
+      opacity: 0.4;
     `};
 
     ${props =>

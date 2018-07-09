@@ -152,7 +152,7 @@ const StyledText = styled(Text)`
 
   -webkit-font-smoothing: antialiased;
 
-  color: ${props => props.color || Colors.primary};
+  color: ${props => props.color || Colors.text};
   ${props => props.align && `text-align: ${props.align}`};
   ${props => props.uppercase && 'text-transform: uppercase'};
   ${props => props.inline && 'display: inline'};
