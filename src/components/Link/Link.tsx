@@ -149,7 +149,7 @@ export const TypeToStyle = {
       props.isNavLink &&
       `
       font-weight: bold;
-      color: ${props => props.color || colors.purple};
+      color: ${props.color || colors.purple};
       border-bottom: 1px solid rgba(0, 0, 0, 0);
       transition: color 0.24s;
       margin-top: 4px;
