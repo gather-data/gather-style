@@ -1,12 +1,10 @@
 {
     "name": "gather-style",
-    "version": "1.0.17",
+    "version": "1.0.18",
     "main": "./dist/lib/index.js",
     "module": "./dist/lib/index.js",
     "types": "./dist/lib/index.d.ts",
-    "files": [
-        "dist"
-    ],
+    "files": ["dist"],
     "scripts": {
         "build": "tsc -p tsconfig.json && yarn build-assets",
         "build-assets": "cp -r src/assets dist/lib",
@@ -14,8 +12,10 @@
         "fix": "./node_modules/.bin/tslint -p tsconfig.json --fix",
         "jest": "./node_modules/.bin/jest -u",
         "prepublishOnly": "yarn build",
-        "storybook": "ts-node ./node_modules/.bin/start-storybook -p 9004 -c .storybook",
-        "test": "tslint -p tsconfig.json && yarn build && ./node_modules/.bin/jest --runInBand"
+        "storybook":
+            "ts-node ./node_modules/.bin/start-storybook -p 9004 -c .storybook",
+        "test":
+            "tslint -p tsconfig.json && yarn build && ./node_modules/.bin/jest --runInBand"
     },
     "author": "Ben Davis <bendavis381@gmail.com>",
     "license": "MIT",

@@ -190,7 +190,7 @@ export const TypeToStyle = {
         background: ${color(props.color || colors.primary)
           .darken(0.05)
           // @ts-ignore
-          .hexString()};
+          .hex()};
       }
     `};
 
