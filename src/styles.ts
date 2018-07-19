@@ -96,6 +96,20 @@ interface FlexProps {
   alignItems: string;
   flow: string;
   flex1: boolean;
+  p: number;
+  pv: number;
+  ph: number;
+  pl: number;
+  pr: number;
+  pt: number;
+  pb: number;
+  m: number;
+  mv: number;
+  mh: number;
+  mt: number;
+  mb: number;
+  mr: number;
+  ml: number;
 }
 
 const Flex = styled.div<FlexProps>`
@@ -104,6 +118,22 @@ const Flex = styled.div<FlexProps>`
   align-items: ${props => props.alignItems || 'center'};
   flex-flow: ${props => props.flow || 'row'};
   ${props => props.flex1 && `flex: 1`};
+
+  ${props => props.p && p(props.p)};
+  ${props => props.pv && pv(props.pv)};
+  ${props => props.ph && ph(props.ph)};
+  ${props => props.pl && pl(props.pl)};
+  ${props => props.pr && pr(props.pr)};
+  ${props => props.pt && pt(props.pt)};
+  ${props => props.pb && pb(props.pb)};
+
+  ${props => props.m && m(props.m)};
+  ${props => props.mv && mv(props.mv)};
+  ${props => props.mh && mh(props.mh)};
+  ${props => props.ml && ml(props.ml)};
+  ${props => props.mr && mr(props.mr)};
+  ${props => props.mt && mt(props.mt)};
+  ${props => props.mb && mb(props.mb)};
 `;
 
 export {

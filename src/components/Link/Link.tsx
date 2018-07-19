@@ -72,6 +72,7 @@ interface LinkProps {
   mt?: number;
   mb?: number;
   size?: 'tiny' | 'small' | 'default' | 'large';
+  submit?: boolean;
 }
 
 const baseStyle = css<LinkProps>`
@@ -164,13 +165,13 @@ export const TypeToStyle = {
 
     ${props => {
       if (props.size === 'tiny') {
-        return TextTypeToStyle[TextTypes.BODY_TINY];
+        return TextTypeToStyle[TextTypes.BODY_TINY].join('');
       } else if (props.size === 'small') {
-        return TextTypeToStyle[TextTypes.BODY_SMALL];
+        return TextTypeToStyle[TextTypes.BODY_SMALL].join('');
       } else if (props.size === 'default') {
-        return TextTypeToStyle[TextTypes.BODY];
+        return TextTypeToStyle[TextTypes.BODY].join('');
       } else if (props.size === 'large') {
-        return TextTypeToStyle[TextTypes.BODY_LARGE];
+        return TextTypeToStyle[TextTypes.BODY_LARGE].join('');
       }
     }};
   `,
@@ -181,31 +182,43 @@ export const TypeToStyle = {
     background: ${props => props.color || colors.primary};
     ${transition(['box-shadow', 'background'])};
     ${borderRadius};
+    opacity: ${props => (props.disabled ? 0.4 : 1)};
 
-    ${props =>
-      !props.disabled &&
-      `
-      &:hover {
-        ${boxShadow};
-        background: ${color(props.color || colors.primary)
-          .darken(0.05)
-          // @ts-ignore
-          .hex()};
+    ${props => {
+      if (props.disabled) {
+        return '';
       }
-    `};
+      let b = color(props.color || colors.primary).darken(0.05);
+
+      // Soetimes
+      if (b.hex) {
+        // @ts-ignore
+        b = b.hex();
+      } else {
+        // @ts-ignore
+        b = b.hexString();
+      }
+
+      return `
+        &:hover {
+          ${boxShadow};
+          background: ${b};
+        }
+      `;
+    }};
 
     ${props => {
       if (props.size === 'default') {
         return `
           ${ph(2)(props)};
           ${pv(0.5)(props)};
-          ${TextTypeToStyle[TextTypes.BODY]};
+          ${TextTypeToStyle[TextTypes.BODY].join('')};
         `;
       } else if (props.size === 'large') {
         return `
           ${ph(3)(props)};
           ${pv(1.5)(props)};
-          ${TextTypeToStyle[TextTypes.BODY_LARGE]};
+          ${TextTypeToStyle[TextTypes.BODY].join('')};
         `;
       }
     }};
@@ -217,6 +230,7 @@ export const TypeToStyle = {
     color: ${props => props.color || colors.primary};
     ${transition(['box-shadow'])};
     ${borderRadius};
+    opacity: ${props => (props.disabled ? 0.4 : 1)};
 
     ${props =>
       !props.disabled &&
@@ -231,13 +245,13 @@ export const TypeToStyle = {
         return `
           ${ph(2)(props)};
           ${pv(0.5)(props)};
-          ${TextTypeToStyle[TextTypes.BODY]};
+          ${TextTypeToStyle[TextTypes.BODY].join('')};
         `;
       } else if (props.size === 'large') {
         return `
           ${ph(3)(props)};
           ${pv(1.5)(props)};
-          ${TextTypeToStyle[TextTypes.BODY_LARGE]};
+          ${TextTypeToStyle[TextTypes.BODY_LARGE].join('')};
         `;
       }
     }};
@@ -318,6 +332,7 @@ class StyledLink extends React.Component<LinkProps> {
       title,
       heavy,
       textColor,
+      submit,
       p: styledP,
       pv: styledPv,
       ph: styledPh,
@@ -411,9 +426,13 @@ class StyledLink extends React.Component<LinkProps> {
       );
     }
 
-    if (onClick && !to) {
+    if ((onClick && !to) || submit) {
       return (
-        <StyledButton onClick={onClick} {...propsToPass}>
+        <StyledButton
+          onClick={onClick}
+          type={submit ? 'submit' : 'button'}
+          {...propsToPass}
+        >
           {newChildren}
         </StyledButton>
       );

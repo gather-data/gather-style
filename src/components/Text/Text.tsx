@@ -71,7 +71,7 @@ export const TypeToStyle: TypeToStyle = {
     font-family: Rubik, Helvetica, sans-serif;
   `,
   [Types.BODY_LARGE]: css`
-    font-size: ${20 / 16}rem;
+    font-size: ${16 / 16}rem;
     font-family: Rubik, Helvetica, sans-serif;
     line-height: 1.3;
   `,
