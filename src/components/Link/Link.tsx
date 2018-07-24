@@ -49,6 +49,7 @@ interface LinkProps {
   id?: string;
   href?: string;
   onClick?: () => void;
+  onMouseDown?: () => void;
   isNavLink?: boolean;
   type: Types;
   className?: string;
@@ -309,6 +310,17 @@ class StyledLink extends React.Component<LinkProps> {
     }
   }
 
+  _handleOnMouseDown() {
+    const { disabled, onMouseDown } = this.props;
+    if (disabled) {
+      return;
+    }
+
+    if (onMouseDown) {
+      onMouseDown();
+    }
+  }
+
   render() {
     const {
       color,
@@ -320,6 +332,7 @@ class StyledLink extends React.Component<LinkProps> {
       iconEnd,
       id,
       onClick,
+      onMouseDown,
       pending,
       isNavLink,
       type,
@@ -426,10 +439,11 @@ class StyledLink extends React.Component<LinkProps> {
       );
     }
 
-    if ((onClick && !to) || submit) {
+    if (((onClick || onMouseDown) && !to) || submit) {
       return (
         <StyledButton
           onClick={onClick}
+          onMouseDown={onMouseDown}
           type={submit ? 'submit' : 'button'}
           {...propsToPass}
         >
@@ -439,7 +453,7 @@ class StyledLink extends React.Component<LinkProps> {
     }
 
     if (!to) {
-      throw new Error('Link has no been provided a `to` prop');
+      throw new Error('Link has not been provided a `to` prop');
     }
 
     return (
