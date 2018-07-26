@@ -49,7 +49,7 @@ interface LinkProps extends StyledComponentProps {
   pending?: boolean;
   id?: string;
   href?: string;
-  onClick?: () => void;
+  onClick?: (event: React.FormEvent) => void;
   onMouseDown?: () => void;
   isNavLink?: boolean;
   type: Types;
