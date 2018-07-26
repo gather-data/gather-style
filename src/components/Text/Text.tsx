@@ -49,7 +49,7 @@ const TypeToTag = {
 type TypeToStyle = { [TKey in Types]: InterpolationValue[] };
 
 interface props {
-  heavy: boolean;
+  heavy?: boolean;
 }
 
 // @ts-ignore
@@ -106,32 +106,32 @@ export const TypeToStyle: TypeToStyle = {
 };
 
 export interface TextProps {
-  className: string;
-  tag: string;
   type: Types;
-  color: string;
-  align: boolean;
-  uppercase: boolean;
-  inline: boolean;
-  flex1: boolean;
-  p: number;
-  pv: number;
-  ph: number;
-  pl: number;
-  pr: number;
-  pt: number;
-  pb: number;
-  m: number;
-  mv: number;
-  mh: number;
-  mt: number;
-  mb: number;
-  mr: number;
-  ml: number;
-  maxWidth: number;
-  heavy: boolean;
-  truncate: boolean;
-  italic: boolean;
+  className?: string;
+  tag?: string;
+  color?: string;
+  align?: boolean;
+  uppercase?: boolean;
+  inline?: boolean;
+  flex1?: boolean;
+  p?: number;
+  pv?: number;
+  ph?: number;
+  pl?: number;
+  pr?: number;
+  pt?: number;
+  pb?: number;
+  m?: number;
+  mv?: number;
+  mh?: number;
+  mt?: number;
+  mb?: number;
+  mr?: number;
+  ml?: number;
+  maxWidth?: number;
+  heavy?: boolean;
+  truncate?: boolean;
+  italic?: boolean;
 }
 
 const Text: React.SFC<TextProps> = ({
