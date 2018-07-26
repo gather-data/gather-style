@@ -92,24 +92,24 @@ const transition = (elements: Array<string>, time = '0.150s') => () =>
     .join(',')}`;
 
 interface FlexProps {
-  justifyContent: string;
-  alignItems: string;
-  flow: string;
-  flex1: boolean;
-  p: number;
-  pv: number;
-  ph: number;
-  pl: number;
-  pr: number;
-  pt: number;
-  pb: number;
-  m: number;
-  mv: number;
-  mh: number;
-  mt: number;
-  mb: number;
-  mr: number;
-  ml: number;
+  justifyContent?: string;
+  alignItems?: string;
+  flow?: string;
+  flex1?: boolean;
+  p?: number;
+  pv?: number;
+  ph?: number;
+  pl?: number;
+  pr?: number;
+  pt?: number;
+  pb?: number;
+  m?: number;
+  mv?: number;
+  mh?: number;
+  mt?: number;
+  mb?: number;
+  mr?: number;
+  ml?: number;
 }
 
 const Flex = styled.div<FlexProps>`
