@@ -1,9 +1,9 @@
 {
     "name": "gather-style",
-    "version": "1.0.28",
-    "main": "./dist/lib/index",
-    "module": "./dist/lib/index",
-    "types": "./dist/lib/index",
+    "version": "1.0.29",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "files": ["dist"],
     "scripts": {
         "build": "tsc -p tsconfig.json && yarn build-assets",
