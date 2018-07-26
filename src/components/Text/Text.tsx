@@ -110,7 +110,7 @@ export interface TextProps {
   className?: string;
   tag?: string;
   color?: string;
-  align?: boolean;
+  align?: string;
   uppercase?: boolean;
   inline?: boolean;
   flex1?: boolean;
