@@ -1,6 +1,6 @@
 {
     "name": "gather-style",
-    "version": "1.0.32",
+    "version": "1.0.33",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
