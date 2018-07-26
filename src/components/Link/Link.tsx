@@ -303,14 +303,14 @@ class StyledLink extends React.Component<LinkProps> {
     size: 'default',
   };
 
-  _handleOnClick() {
+  _handleOnClick(event: React.FormEvent) {
     const { disabled, onClick } = this.props;
     if (disabled) {
       return;
     }
 
     if (onClick) {
-      onClick();
+      onClick(event);
     }
   }
 
