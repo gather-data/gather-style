@@ -21,8 +21,8 @@ const row = `{
   flex-flow: row;
 }`;
 
-interface StyledComponentProps {
-  theme: ThemeInterface;
+export interface StyledComponentProps {
+  theme?: ThemeInterface;
 }
 
 const SPACING = 8;

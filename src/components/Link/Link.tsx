@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, InterpolationValue } from 'styled-components';
 import { HashLink as Link } from 'react-router-hash-link';
 import Scrollchor from 'react-scrollchor';
 import { NavLink } from 'react-router-dom';
@@ -24,6 +24,7 @@ import {
   ml,
   mt,
   mb,
+  StyledComponentProps,
 } from '../../styles';
 import Text, {
   Types as TextTypes,
@@ -36,7 +37,7 @@ export enum Types {
   BUTTON_DEFAULT = 'buttonDefault',
 }
 
-interface LinkProps {
+interface LinkProps extends StyledComponentProps {
   color?: string;
   textColor?: string;
   exact?: boolean;
@@ -122,15 +123,18 @@ const baseStyle = css<LinkProps>`
   }`};
 `;
 
-export const TypeToStyle = {
-  [Types.TEXT]: css<LinkProps>`
-    color: ${props => props.color || colors.primary};
+type TypeToStyle = { [TKey in Types]: InterpolationValue[] };
+
+// @ts-ignore
+export const TypeToStyle: TypeToStyle = {
+  [Types.TEXT]: css`
+    color: ${(props: LinkProps) => props.color || colors.primary};
     -webkit-font-smoothing: antialiased;
     text-decoration: none;
 
     &:hover,
     &.active {
-      ${props => {
+      ${(props: LinkProps) => {
         if (props.disabled) {
           return '';
         } else if (props.isNavLink) {
@@ -147,7 +151,7 @@ export const TypeToStyle = {
       }};
     }
 
-    ${props =>
+    ${(props: LinkProps) =>
       props.isNavLink &&
       `
       font-weight: bold;
@@ -158,13 +162,13 @@ export const TypeToStyle = {
       opacity: 0.4;
     `};
 
-    ${props =>
+    ${(props: LinkProps) =>
       props.heavy &&
       `
       font-weight: bold;
     `};
 
-    ${props => {
+    ${(props: LinkProps) => {
       if (props.size === 'tiny') {
         return TextTypeToStyle[TextTypes.BODY_TINY].join('');
       } else if (props.size === 'small') {
@@ -177,15 +181,15 @@ export const TypeToStyle = {
     }};
   `,
 
-  [Types.BUTTON_PRIMARY]: css<LinkProps>`
-    color: ${props => props.textColor || colors.white};
-    border: 1px solid ${props => props.color || colors.primary};
-    background: ${props => props.color || colors.primary};
+  [Types.BUTTON_PRIMARY]: css`
+    color: ${(props: LinkProps) => props.textColor || colors.white};
+    border: 1px solid ${(props: LinkProps) => props.color || colors.primary};
+    background: ${(props: LinkProps) => props.color || colors.primary};
     ${transition(['box-shadow', 'background'])};
     ${borderRadius};
-    opacity: ${props => (props.disabled ? 0.4 : 1)};
+    opacity: ${(props: LinkProps) => (props.disabled ? 0.4 : 1)};
 
-    ${props => {
+    ${(props: LinkProps) => {
       if (props.disabled) {
         return '';
       }
@@ -208,7 +212,7 @@ export const TypeToStyle = {
       `;
     }};
 
-    ${props => {
+    ${(props: LinkProps) => {
       if (props.size === 'default') {
         return `
           ${ph(2)(props)};
@@ -225,15 +229,15 @@ export const TypeToStyle = {
     }};
   `,
 
-  [Types.BUTTON_DEFAULT]: css<LinkProps>`
+  [Types.BUTTON_DEFAULT]: css`
     background: ${colors.white};
-    border: 1px solid ${props => props.color || colors.primary};
-    color: ${props => props.color || colors.primary};
+    border: 1px solid ${(props: LinkProps) => props.color || colors.primary};
+    color: ${(props: LinkProps) => props.color || colors.primary};
     ${transition(['box-shadow'])};
     ${borderRadius};
-    opacity: ${props => (props.disabled ? 0.4 : 1)};
+    opacity: ${(props: LinkProps) => (props.disabled ? 0.4 : 1)};
 
-    ${props =>
+    ${(props: LinkProps) =>
       !props.disabled &&
       `
       &:hover {
@@ -241,7 +245,7 @@ export const TypeToStyle = {
       }
     `};
 
-    ${props => {
+    ${(props: LinkProps) => {
       if (props.size === 'default') {
         return `
           ${ph(2)(props)};
