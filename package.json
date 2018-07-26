@@ -1,13 +1,13 @@
 {
     "name": "gather-style",
-    "version": "1.0.30",
+    "version": "1.0.31",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": ["dist"],
     "scripts": {
         "build": "tsc -p tsconfig.json && yarn build-assets",
-        "build-assets": "cp -r src/assets dist/lib",
+        "build-assets": "cp -r src/assets dist",
         "watch": "tsc -w -p tsconfig.json",
         "fix": "./node_modules/.bin/tslint -p tsconfig.json --fix",
         "jest": "./node_modules/.bin/jest -u",
