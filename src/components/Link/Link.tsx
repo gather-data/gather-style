@@ -232,7 +232,8 @@ export const TypeToStyle: TypeToStyle = {
   [Types.BUTTON_DEFAULT]: css`
     background: ${colors.white};
     border: 1px solid ${(props: LinkProps) => props.color || colors.primary};
-    color: ${(props: LinkProps) => props.color || colors.primary};
+    color: ${(props: LinkProps) =>
+      props.textColor || props.color || colors.primary};
     ${transition(['box-shadow'])};
     ${borderRadius};
     opacity: ${(props: LinkProps) => (props.disabled ? 0.4 : 1)};
