@@ -350,6 +350,7 @@ class StyledLink extends React.Component<LinkProps> {
       heavy,
       textColor,
       submit,
+      justify,
       p: styledP,
       pv: styledPv,
       ph: styledPh,
@@ -397,6 +398,7 @@ class StyledLink extends React.Component<LinkProps> {
       heavy,
       isNavLink,
       title,
+      justify,
     };
 
     let NavComponent = StyledRouterLink;
