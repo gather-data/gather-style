@@ -142,8 +142,6 @@ export const TypeToStyle: TypeToStyle = {
             opacity: 1;
             color: ${colors.primary};
             border-bottom: 1px solid ${colors.primary};
-  purple20: '#DFE3FD',
-  purple20: '#DFE3FD',
           `;
         }
 
