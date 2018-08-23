@@ -75,6 +75,7 @@ interface LinkProps extends StyledComponentProps {
   mb?: number;
   size?: 'tiny' | 'small' | 'default' | 'large';
   submit?: boolean;
+  justify?: string;
 }
 
 const baseStyle = css<LinkProps>`
@@ -89,7 +90,7 @@ const baseStyle = css<LinkProps>`
   cursor: pointer;
   text-align: left;
   -webkit-appearance: none;
-  justify-content: center;
+  justify-content: ${props => props.justify || 'center'};
 
   &:hover {
     text-decoration: none;
