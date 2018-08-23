@@ -76,6 +76,7 @@ interface LinkProps extends StyledComponentProps {
   size?: 'tiny' | 'small' | 'default' | 'large';
   submit?: boolean;
   justify?: string;
+  underline?: boolean;
 }
 
 const baseStyle = css<LinkProps>`
@@ -136,7 +137,7 @@ export const TypeToStyle: TypeToStyle = {
     &:hover,
     &.active {
       ${(props: LinkProps) => {
-        if (props.disabled) {
+        if (props.disabled || !props.underline) {
           return '';
         } else if (props.isNavLink) {
           return `
@@ -301,6 +302,7 @@ class StyledLink extends React.Component<LinkProps> {
   static defaultProps = {
     type: Types.TEXT,
     size: 'default',
+    underline: true,
   };
 
   _handleOnClick(event: React.FormEvent) {
@@ -351,6 +353,7 @@ class StyledLink extends React.Component<LinkProps> {
       textColor,
       submit,
       justify,
+      underline,
       p: styledP,
       pv: styledPv,
       ph: styledPh,
@@ -378,6 +381,7 @@ class StyledLink extends React.Component<LinkProps> {
       inline,
       fullWidth,
       target,
+      underline,
       p: styledP,
       pv: styledPv,
       ph: styledPh,
