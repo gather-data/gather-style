@@ -35,6 +35,7 @@ export enum Types {
   TEXT = 'text',
   BUTTON_PRIMARY = 'buttonPrimary',
   BUTTON_DEFAULT = 'buttonDefault',
+  BUTTON_BASIC = 'buttonBasic',
 }
 
 interface LinkProps extends StyledComponentProps {
@@ -234,6 +235,40 @@ export const TypeToStyle: TypeToStyle = {
     border: 1px solid ${(props: LinkProps) => props.color || colors.primary};
     color: ${(props: LinkProps) =>
       props.textColor || props.color || colors.primary};
+    ${transition(['box-shadow'])};
+    ${borderRadius};
+    opacity: ${(props: LinkProps) => (props.disabled ? 0.4 : 1)};
+
+    ${(props: LinkProps) =>
+      !props.disabled &&
+      `
+      &:hover {
+        ${boxShadow};
+      }
+    `};
+
+    ${(props: LinkProps) => {
+      if (props.size === 'default') {
+        return `
+          ${ph(2)(props)};
+          ${pv(0.5)(props)};
+          ${TextTypeToStyle[TextTypes.BODY].join('')};
+        `;
+      } else if (props.size === 'large') {
+        return `
+          ${ph(3)(props)};
+          ${pv(1.5)(props)};
+          ${TextTypeToStyle[TextTypes.BODY_LARGE].join('')};
+        `;
+      }
+    }};
+  `,
+
+  [Types.BUTTON_BASIC]: css`
+    background: ${colors.white};
+    border: 1px solid ${(props: LinkProps) => props.color || colors.border};
+    color: ${(props: LinkProps) =>
+      props.textColor || props.color || colors.text};
     ${transition(['box-shadow'])};
     ${borderRadius};
     opacity: ${(props: LinkProps) => (props.disabled ? 0.4 : 1)};
