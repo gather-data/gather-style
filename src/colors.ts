@@ -5,6 +5,7 @@ const Colors = {
   red: '#F75353',
   beige: '#F5CE98',
   white: '#fff',
+  green: '#4CD964',
 
   // Not to be used directly
   navy80: 'rgba(36, 34, 50, 0.8)',
