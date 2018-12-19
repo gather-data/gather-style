@@ -56,7 +56,6 @@ interface props {
 export const TypeToStyle: TypeToStyle = {
   [Types.BODY_TINY]: css`
     font-size: ${12 / 16}rem;
-    line-height: 1.5em;
     font-family: Rubik, Helvetica, sans-serif;
     line-height: 1.3;
   `,
@@ -67,13 +66,13 @@ export const TypeToStyle: TypeToStyle = {
   `,
   [Types.BODY]: css`
     font-size: ${16 / 16}rem;
-    line-height: ${28 / 16}rem;
+    line-height: 1.5;
     font-family: Rubik, Helvetica, sans-serif;
   `,
   [Types.BODY_LARGE]: css`
-    font-size: ${16 / 16}rem;
+    font-size: ${18 / 16}rem;
     font-family: Rubik, Helvetica, sans-serif;
-    line-height: 1.3;
+    line-height: 1.5;
   `,
   [Types.HEADING_1]: css`
     font-size: ${48 / 16}rem;
