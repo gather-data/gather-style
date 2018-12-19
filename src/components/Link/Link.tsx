@@ -363,10 +363,14 @@ const StyledScrollchor = styled(Scrollchor)`
 interface IconProps {
   hasChildren?: boolean;
   iconEnd?: boolean;
+  size?: string;
 }
 
 const StyledIcon = styled.span<IconProps>`
-  ${props => (props.hasChildren && props.iconEnd ? ml(1) : mr(1.5))};
+  ${props =>
+    props.hasChildren && props.iconEnd
+      ? ml(props.size === 'small' ? 0.5 : 1)
+      : mr(props.size === 'small' ? 0.75 : 1)};
 `;
 
 class StyledLink extends React.Component<LinkProps> {
@@ -489,13 +493,18 @@ class StyledLink extends React.Component<LinkProps> {
     if (iconToUse) {
       if (iconEnd) {
         newChildren = React.Children.toArray(children).concat([
-          <StyledIcon iconEnd key="icon" hasChildren={Boolean(children)}>
+          <StyledIcon
+            size={size}
+            iconEnd
+            key="icon"
+            hasChildren={Boolean(children)}
+          >
             {iconToUse}
           </StyledIcon>,
         ]);
       } else {
         newChildren = [
-          <StyledIcon key="icon" hasChildren={Boolean(children)}>
+          <StyledIcon size={size} key="icon" hasChildren={Boolean(children)}>
             {iconToUse}
           </StyledIcon>,
           // I don't know how to make this valid
