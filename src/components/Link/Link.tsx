@@ -213,6 +213,12 @@ export const TypeToStyle: TypeToStyle = {
       `;
     }};
 
+    ${(props: LinkProps) =>
+      props.heavy &&
+      `
+      font-weight: bold;
+    `};
+
     ${(props: LinkProps) => {
       if (props.size === 'default') {
         return `
@@ -229,7 +235,7 @@ export const TypeToStyle: TypeToStyle = {
       } else if (props.size === 'small') {
         return `
           ${ph(1)(props)};
-          ${pv(0)(props)};
+          ${pv(0.5)(props)};
           ${TextTypeToStyle[TextTypes.BODY_SMALL].join('')};
         `;
       }
@@ -253,6 +259,12 @@ export const TypeToStyle: TypeToStyle = {
       }
     `};
 
+    ${(props: LinkProps) =>
+      props.heavy &&
+      `
+      font-weight: bold;
+    `};
+
     ${(props: LinkProps) => {
       if (props.size === 'default') {
         return `
@@ -269,7 +281,7 @@ export const TypeToStyle: TypeToStyle = {
       } else if (props.size === 'small') {
         return `
           ${ph(1)(props)};
-          ${pv(0)(props)};
+          ${pv(0.5)(props)};
           ${TextTypeToStyle[TextTypes.BODY_SMALL].join('')};
         `;
       }
@@ -293,6 +305,12 @@ export const TypeToStyle: TypeToStyle = {
       }
     `};
 
+    ${(props: LinkProps) =>
+      props.heavy &&
+      `
+      font-weight: bold;
+    `};
+
     ${(props: LinkProps) => {
       if (props.size === 'default') {
         return `
@@ -309,7 +327,7 @@ export const TypeToStyle: TypeToStyle = {
       } else if (props.size === 'small') {
         return `
           ${ph(1)(props)};
-          ${pv(0)(props)};
+          ${pv(0.5)(props)};
           ${TextTypeToStyle[TextTypes.BODY_SMALL].join('')};
         `;
       }
