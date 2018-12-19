@@ -226,6 +226,12 @@ export const TypeToStyle: TypeToStyle = {
           ${pv(1.5)(props)};
           ${TextTypeToStyle[TextTypes.BODY].join('')};
         `;
+      } else if (props.size === 'small') {
+        return `
+          ${ph(1)(props)};
+          ${pv(0)(props)};
+          ${TextTypeToStyle[TextTypes.BODY_SMALL].join('')};
+        `;
       }
     }};
   `,
@@ -260,6 +266,12 @@ export const TypeToStyle: TypeToStyle = {
           ${pv(1.5)(props)};
           ${TextTypeToStyle[TextTypes.BODY_LARGE].join('')};
         `;
+      } else if (props.size === 'small') {
+        return `
+          ${ph(1)(props)};
+          ${pv(0)(props)};
+          ${TextTypeToStyle[TextTypes.BODY_SMALL].join('')};
+        `;
       }
     }};
   `,
@@ -293,6 +305,12 @@ export const TypeToStyle: TypeToStyle = {
           ${ph(3)(props)};
           ${pv(1.5)(props)};
           ${TextTypeToStyle[TextTypes.BODY_LARGE].join('')};
+        `;
+      } else if (props.size === 'small') {
+        return `
+          ${ph(1)(props)};
+          ${pv(0)(props)};
+          ${TextTypeToStyle[TextTypes.BODY_SMALL].join('')};
         `;
       }
     }};
