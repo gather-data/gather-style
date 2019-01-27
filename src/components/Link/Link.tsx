@@ -534,8 +534,8 @@ class StyledLink extends React.Component<LinkProps> {
         <StyledButton
           onClick={onClick}
           onMouseDown={onMouseDown}
-          type={submit ? 'submit' : 'button'}
           {...propsToPass}
+          type={submit ? 'submit' : 'button'}
         >
           {newChildren}
         </StyledButton>
