@@ -39,6 +39,7 @@ export enum Types {
 }
 
 interface LinkProps extends StyledComponentProps {
+  linkType: Types;
   color?: string;
   textColor?: string;
   exact?: boolean;
@@ -53,7 +54,6 @@ interface LinkProps extends StyledComponentProps {
   onClick?: (event: React.FormEvent) => void;
   onMouseDown?: () => void;
   isNavLink?: boolean;
-  type: Types;
   className?: string;
   to?: string;
   inline?: boolean;
@@ -337,27 +337,27 @@ export const TypeToStyle: TypeToStyle = {
 
 const StyledRouterLink = styled(Link)`
   ${baseStyle};
-  ${props => TypeToStyle[props.type]};
+  ${props => TypeToStyle[props.linkType]};
 `;
 
 const StyledRouterNavLink = styled(NavLink)`
   ${baseStyle};
-  ${props => TypeToStyle[props.type]};
+  ${props => TypeToStyle[props.linkType]};
 `;
 
 const StyledAnchor = styled.a`
   ${baseStyle};
-  ${props => TypeToStyle[props.type]};
+  ${props => TypeToStyle[props.linkType]};
 `;
 
 const StyledButton = styled.button`
   ${baseStyle};
-  ${props => TypeToStyle[props.type]};
+  ${props => TypeToStyle[props.linkType]};
 `;
 
 const StyledScrollchor = styled(Scrollchor)`
   ${baseStyle};
-  ${props => TypeToStyle[props.type]};
+  ${props => TypeToStyle[props.linkType]};
 `;
 
 interface IconProps {
@@ -375,7 +375,7 @@ const StyledIcon = styled.span<IconProps>`
 
 class StyledLink extends React.Component<LinkProps> {
   static defaultProps = {
-    type: Types.TEXT,
+    linkType: Types.TEXT,
     size: 'default',
     underline: true,
   };
@@ -416,7 +416,7 @@ class StyledLink extends React.Component<LinkProps> {
       onMouseDown,
       pending,
       isNavLink,
-      type,
+      linkType,
       to,
       inline,
       exact,
@@ -450,7 +450,7 @@ class StyledLink extends React.Component<LinkProps> {
 
     const propsToPass = {
       className,
-      type,
+      linkType,
       color,
       disabled,
       inline,
@@ -534,8 +534,8 @@ class StyledLink extends React.Component<LinkProps> {
         <StyledButton
           onClick={onClick}
           onMouseDown={onMouseDown}
-          {...propsToPass}
           type={submit ? 'submit' : 'button'}
+          {...propsToPass}
         >
           {newChildren}
         </StyledButton>
