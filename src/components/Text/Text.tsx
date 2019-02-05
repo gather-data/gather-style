@@ -131,6 +131,7 @@ export interface TextProps {
   heavy?: boolean;
   truncate?: boolean;
   italic?: boolean;
+  textDecoration?: string;
 }
 
 const Text: React.SFC<TextProps> = ({
@@ -153,6 +154,8 @@ const StyledText = styled(Text)`
 
   color: ${props => props.color || Colors.text};
   ${props => props.align && `text-align: ${props.align}`};
+  ${props =>
+    props.textDecoration && `text-decoration: ${props.textDecoration}`};
   ${props => props.uppercase && 'text-transform: uppercase'};
   ${props => props.inline && 'display: inline'};
   ${props => props.flex1 && 'flex: 1'};
