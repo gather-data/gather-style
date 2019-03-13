@@ -1,6 +1,6 @@
 {
   "name": "gather-style",
-  "version": "1.0.53",
+  "version": "1.1.0",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -23,6 +23,7 @@
     "@storybook/react": "3.4.8",
     "@types/jest": "^22.0.0",
     "@types/node": "^10.0.3",
+    "@types/reach__router": "1.2.3",
     "@types/react": "16.4.6",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.5",
@@ -36,6 +37,7 @@
     "prettier": "1.13.7"
   },
   "dependencies": {
+    "@reach/router": "1.2.1",
     "@types/color": "3.0.0",
     "@types/hedron": "0.7.2",
     "@types/react-router-dom": "4.2.7",

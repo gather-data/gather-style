@@ -3,6 +3,7 @@ import styled, { css, InterpolationValue } from 'styled-components';
 import { HashLink as Link } from 'react-router-hash-link';
 import Scrollchor from 'react-scrollchor';
 import { NavLink } from 'react-router-dom';
+import { Link as ReachLink } from '@reach/router';
 import color from 'color';
 
 import colors from '../../colors';
@@ -78,6 +79,7 @@ interface LinkProps extends StyledComponentProps {
   submit?: boolean;
   justify?: string;
   underline?: boolean;
+  useReachRouter?: boolean;
 }
 
 const baseStyle = css<LinkProps>`
@@ -345,6 +347,11 @@ const StyledRouterNavLink = styled(NavLink)`
   ${props => TypeToStyle[props.linkType]};
 `;
 
+const StyledReachLink = styled(ReachLink)`
+  ${baseStyle};
+  ${props => TypeToStyle[props.linkType]};
+`;
+
 const StyledAnchor = styled.a`
   ${baseStyle};
   ${props => TypeToStyle[props.linkType]};
@@ -429,6 +436,7 @@ class StyledLink extends React.Component<LinkProps> {
       submit,
       justify,
       underline,
+      useReachRouter,
       p: styledP,
       pv: styledPv,
       ph: styledPh,
@@ -478,6 +486,7 @@ class StyledLink extends React.Component<LinkProps> {
       isNavLink,
       title,
       justify,
+      useReachRouter,
     };
 
     let NavComponent = StyledRouterLink;
@@ -488,6 +497,8 @@ class StyledLink extends React.Component<LinkProps> {
       propsToPass.exact = exact;
       propsToPass.isNavLink = isNavLink;
       propsToPass.title = title;
+    } else if (useReachRouter) {
+      NavComponent = StyledReachLink;
     }
 
     if (iconToUse) {
