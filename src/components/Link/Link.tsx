@@ -495,8 +495,10 @@ class StyledLink extends React.Component<LinkProps> {
 
     let NavComponent = StyledRouterLink;
     if (useReachRouter) {
+      // @ts-ignore
       NavComponent = StyledReachLink;
     } else if (isNavLink) {
+      // @ts-ignore
       NavComponent = StyledRouterNavLink;
     }
 
