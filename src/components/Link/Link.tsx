@@ -80,6 +80,7 @@ interface LinkProps extends StyledComponentProps {
   justify?: string;
   underline?: boolean;
   useReachRouter?: boolean;
+  getProps?: () => object;
 }
 
 const baseStyle = css<LinkProps>`
@@ -437,6 +438,7 @@ class StyledLink extends React.Component<LinkProps> {
       justify,
       underline,
       useReachRouter,
+      getProps,
       p: styledP,
       pv: styledPv,
       ph: styledPh,
@@ -487,6 +489,7 @@ class StyledLink extends React.Component<LinkProps> {
       title,
       justify,
       useReachRouter,
+      getProps,
     };
 
     let NavComponent = StyledRouterLink;
