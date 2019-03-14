@@ -139,7 +139,8 @@ export const TypeToStyle: TypeToStyle = {
     text-decoration: none;
 
     &:hover,
-    &.active {
+    &.active,
+    &[aria-current] {
       ${(props: LinkProps) => {
         if (props.disabled || !props.underline) {
           return '';
@@ -493,15 +494,10 @@ class StyledLink extends React.Component<LinkProps> {
     };
 
     let NavComponent = StyledRouterLink;
-    if (isNavLink) {
-      // I don't know how to make this valid
-      // @ts-ignore
-      NavComponent = StyledRouterNavLink;
-      propsToPass.exact = exact;
-      propsToPass.isNavLink = isNavLink;
-      propsToPass.title = title;
-    } else if (useReachRouter) {
+    if (useReachRouter) {
       NavComponent = StyledReachLink;
+    } else if (isNavLink) {
+      NavComponent = StyledRouterNavLink;
     }
 
     if (iconToUse) {
