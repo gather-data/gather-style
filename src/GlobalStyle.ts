@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import Text, { Types, TypeToStyle } from './components/Text';
 
@@ -9,10 +9,9 @@ import rubik500 from './assets/fonts/rubik500.ttf';
 import rubik500Italic from './assets/fonts/rubik500Italic.ttf';
 import firaMonoRegular from './assets/fonts/firaMonoRegular.ttf';
 
-export default function registerGlobalCSS() {
-  /*eslint-disable */
-  // @ts-ignore
-  injectGlobal`
+/*eslint-disable */
+// @ts-ignore
+const GlobalStyle = createGlobalStyle`
     @font-face {
       font-family: cornerstone;
       src: url('${cornerstone}');
@@ -82,5 +81,6 @@ export default function registerGlobalCSS() {
       height: 100%;
     }
   `;
-  /*eslint-enable */
-}
+/*eslint-enable */
+
+export default GlobalStyle;

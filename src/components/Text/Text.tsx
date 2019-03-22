@@ -1,9 +1,5 @@
 import * as React from 'react';
-import styled, {
-  css,
-  StyledComponentClass,
-  InterpolationValue,
-} from 'styled-components';
+import styled, { css, InterpolationValue } from 'styled-components';
 
 import Colors from '../../colors';
 import {
@@ -179,7 +175,7 @@ const StyledText = styled(Text)`
   ${props => props.maxWidth && maxWidth(props.maxWidth)};
 
   font-weight: ${props => (props.heavy ? 'bold' : 'normal')};
-  ${props => TypeToStyle[props.type]};
+  ${(props: TextProps) => TypeToStyle[props.type]};
 
   ${props =>
     props.truncate &&

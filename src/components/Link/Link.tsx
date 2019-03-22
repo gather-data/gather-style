@@ -341,32 +341,32 @@ export const TypeToStyle: TypeToStyle = {
 
 const StyledRouterLink = styled(Link)`
   ${baseStyle};
-  ${props => TypeToStyle[props.linkType]};
+  ${(props: LinkProps) => TypeToStyle[props.linkType]};
 `;
 
 const StyledRouterNavLink = styled(NavLink)`
   ${baseStyle};
-  ${props => TypeToStyle[props.linkType]};
+  ${(props: LinkProps) => TypeToStyle[props.linkType]};
 `;
 
 const StyledReachLink = styled(ReachLink)`
   ${baseStyle};
-  ${props => TypeToStyle[props.linkType]};
+  ${(props: LinkProps) => TypeToStyle[props.linkType]};
 `;
 
 const StyledAnchor = styled.a`
   ${baseStyle};
-  ${props => TypeToStyle[props.linkType]};
+  ${(props: LinkProps) => TypeToStyle[props.linkType]};
 `;
 
 const StyledButton = styled.button`
   ${baseStyle};
-  ${props => TypeToStyle[props.linkType]};
+  ${(props: LinkProps) => TypeToStyle[props.linkType]};
 `;
 
 const StyledScrollchor = styled(Scrollchor)`
   ${baseStyle};
-  ${props => TypeToStyle[props.linkType]};
+  ${(props: LinkProps) => TypeToStyle[props.linkType]};
 `;
 
 interface IconProps {
@@ -376,7 +376,7 @@ interface IconProps {
 }
 
 const StyledIcon = styled.span<IconProps>`
-  ${props =>
+  ${(props: LinkProps) =>
     props.hasChildren && props.iconEnd
       ? ml(props.size === 'small' ? 0.5 : 1)
       : mr(props.size === 'small' ? 0.75 : 1)};
